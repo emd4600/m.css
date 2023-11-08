@@ -149,7 +149,7 @@ default_config = {
         '../css/m-dark+documentation.compiled.css'],
     'EXTRA_FILES': [],
     'LINKS_NAVBAR1': [
-        ('Pages', 'pages', []),
+        ('Tutorials', 'pages', []),
         ('Modules', 'modules', []),
         ('Classes', 'classes', [])],
     'LINKS_NAVBAR2': [],

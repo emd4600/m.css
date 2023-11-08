@@ -100,7 +100,7 @@ default_config = {
     'THEME_COLOR': '#22272e',
     'FAVICON': 'favicon-dark.png',
     'LINKS_NAVBAR1': [
-        ("Pages", 'pages', []),
+        ("Tutorials", 'pages', []),
         ("Namespaces", 'namespaces', [])
     ],
     'LINKS_NAVBAR2': [
@@ -2050,6 +2050,7 @@ def parse_func(state: State, element: ET.Element):
     func.is_explicit = func.is_explicit or element.attrib['explicit'] == 'yes'
     func.is_virtual = func.is_virtual or element.attrib['virt'] != 'non-virtual'
     is_static = is_static or element.attrib['static'] == 'yes'
+    print(element.attrib)
     if 'constexpr' in element.attrib:
         func.is_constexpr = func.is_constexpr or element.attrib['constexpr'] == 'yes'
     if 'consteval' in element.attrib:
@@ -2514,6 +2515,8 @@ def build_search_data(state: State, merge_subtrees=True, add_lookahead_barriers=
             joiner = ' » '
         else:
             assert False # pragma: no cover
+
+        print(f"RESULT: {result}")
 
         # Handle function arguments
         name_with_args = result.name
@@ -3694,7 +3697,7 @@ def parse_doxyfile(state: State, doxyfile, values = None):
     # (HTML) or (title, URL, ID). Those are then saved into LINKS_NAVBAR[12]
     # and processed further.
     predefined = {
-        'pages': ("Pages", 'pages.html'),
+        'pages': ("Tutorials", 'pages.html'),
         'namespaces': ("Namespaces", 'namespaces.html'),
         'modules': ("Modules", 'modules.html'),
         'annotated': ("Classes", 'annotated.html'),
